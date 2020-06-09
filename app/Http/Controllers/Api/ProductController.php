@@ -9,6 +9,12 @@ use App\Http\Requests\Product\UpdateProduct;
 use App\Product;
 use Exception;
 
+/**
+ * @group  Product
+ *
+ * APIs for managing products
+ */
+
 class ProductController extends Controller
 {
     private $product;
@@ -18,6 +24,35 @@ class ProductController extends Controller
         $this->product = $product;
     }
 
+    /**
+     * @response {
+     *      "current_page": 1,
+     *      "data": [
+     *      { 
+     *          "id": 4,
+     *          "name": "Example Response",
+     *          "amount": 150,
+     *          "qty_stock": 2,
+     *          "last_sale": null
+     *      }],
+     *      "first_page_url": "first-page-url",
+     *      "from": 1,
+     *      "last_page": 2,
+     *      "last_page_url": "last-page-url",
+     *      "next_page_url": "next-page-url",
+     *      "path": "path-url",
+     *      "per_page": 10,
+     *      "prev_page_url": null,
+     *      "to": 10,
+     *      "total": 15
+     * }
+     * @response 404 {
+     *      "data": {
+     *          "msg": "Não encontrado!",
+     *          "code": 404
+     *      }
+     * }
+     */
     public function index()
     {
         return $this->product->paginate(10);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Api\ApiError;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\StoreProduct;
+use App\Http\Requests\Product\UpdateProduct;
 use App\Product;
 use Exception;
 
@@ -41,6 +42,24 @@ class ProductController extends Controller
         } catch (Exception $e) {
             if (config('app.debug')) {
                 return response()->json(ApiError::customizeError($e->getMessage(), 500));
+            }
+            return response()->json(ApiError::serverError());
+        }
+    }
+
+    public function update(UpdateProduct $request, $id)
+    {
+        $request->validated();
+
+        try {
+            $data = $request->all();
+            $product = $this->product->find($id);
+            if (!$product) return response()->json(ApiError::notFound());
+            $product->update($data);
+            return response()->json(ApiError::success());
+        } catch (Exception $e) {
+            if (config('app.debug')) {
+                return response()->json(ApiError::serverError($e->getMessage(), 500));
             }
             return response()->json(ApiError::serverError());
         }

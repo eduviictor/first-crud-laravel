@@ -58,6 +58,23 @@ class ProductController extends Controller
         return $this->product->paginate(10);
     }
 
+    /**
+     * @response {
+     *      "data": { 
+     *          "id": 4,
+     *          "name": "Example Response",
+     *          "amount": 150,
+     *          "qty_stock": 2,
+     *          "last_sale": null
+     *      }
+     * }
+     * @response 404 {
+     *      "data": {
+     *          "msg": "Não encontrado!",
+     *          "code": 404
+     *      }
+     * }
+     */
     public function show($id)
     {
         $product = $this->product->find($id);

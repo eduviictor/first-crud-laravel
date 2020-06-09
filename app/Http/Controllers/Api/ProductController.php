@@ -64,4 +64,19 @@ class ProductController extends Controller
             return response()->json(ApiError::serverError());
         }
     }
+
+    public function delete($id)
+    {
+        try {
+            $product = $this->product->find($id);
+            if (!$product) return response()->json(ApiError::notFound());
+            $product->delete();
+            return response()->json(ApiError::success());
+        } catch (Exception $e) {
+            if (config('app.debug')) {
+                return response()->json(ApiError::customizeError($e->getMessage(), 500));
+            }
+            return response()->json(ApiError::serverError());
+        }
+    }
 }

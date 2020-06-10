@@ -175,6 +175,26 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * @response {
+     *      "data": {
+     *          "msg": "Sucesso!",
+     *          "code": 200
+     *      }
+     * }
+     * @response 404 {
+     *      "data": {
+     *          "msg": "Não encontrado!",
+     *          "code": 404
+     *      }
+     * }
+     * @response 500 {
+     *      "data": {
+     *          "msg": "Erro interno no servidor!",
+     *          "code": 500
+     *      }
+     * }
+     */
     public function delete($id)
     {
         try {

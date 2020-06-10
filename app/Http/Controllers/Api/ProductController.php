@@ -125,6 +125,36 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * @response {
+     *      "data": {
+     *          "msg": "Sucesso!",
+     *          "code": 200
+     *      }
+     * }
+     * @response 400 {
+     *      "data": {
+     *          "msg": "Erro nos dados enviados!",
+     *          "code": 400
+     *      }
+     * }
+     * @response 404 {
+     *      "data": {
+     *          "msg": "Não encontrado!",
+     *          "code": 404
+     *      }
+     * }
+     * @response 500 {
+     *      "data": {
+     *          "msg": "Erro interno no servidor!",
+     *          "code": 500
+     *      }
+     * }
+     * @bodyParam  name string optional Name of product.
+     * @bodyParam  amount float optional Price of product.
+     * @bodyParam  qty_stock integer optional Quantity of products.
+     * @bodyParam  last_sale date optional Date of last sale (default: null, format: dd-mm-yyyy)
+     */
     public function update(UpdateProduct $request, $id)
     {
         $request->validated();

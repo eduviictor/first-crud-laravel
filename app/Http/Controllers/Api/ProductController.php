@@ -162,7 +162,7 @@ class ProductController extends Controller
 
         try {
             $data = $request->all();
-            if ($data['last_sale']) $data['last_sale'] = date_create(str_replace('/', '-', $data['last_sale']));
+            if (array_key_exists('last_sale', $data)) $data['last_sale'] = date_create(str_replace('/', '-', $data['last_sale']));
             $product = $this->product->find($id);
             if (!$product) return response()->json(ApiError::notFound());
             $product->update($data);

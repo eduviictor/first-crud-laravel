@@ -38,6 +38,11 @@ class StorePurchase extends FormRequest
     {
         $product = Product::find($this->product_id);
 
+        // Product not exists
+        if (!$product) {
+            throw new HttpResponseException(response()->json(ApiError::dataError(), 400));
+        }
+
         return [
             'product_id' => 'required',
             'quantity_purchased' => 'required|numeric|min:1|max:' . $product->qty_stock,

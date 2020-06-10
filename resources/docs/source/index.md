@@ -166,7 +166,7 @@ curl -X POST \
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"qui","amount":1.7631526,"qty_stock":2,"last_sale":"quo"}'
+    -d '{"name":"autem","amount":13.881373,"qty_stock":12,"last_sale":"et"}'
 
 ```
 
@@ -181,10 +181,10 @@ let headers = {
 };
 
 let body = {
-    "name": "qui",
-    "amount": 1.7631526,
-    "qty_stock": 2,
-    "last_sale": "quo"
+    "name": "autem",
+    "amount": 13.881373,
+    "qty_stock": 12,
+    "last_sale": "et"
 }
 
 fetch(url, {
@@ -249,7 +249,9 @@ Parameter | Type | Status | Description
 curl -X PUT \
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"name":"id","amount":0.832695,"qty_stock":16,"last_sale":"explicabo"}'
+
 ```
 
 ```javascript
@@ -262,20 +264,75 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "id",
+    "amount": 0.832695,
+    "qty_stock": 16,
+    "last_sale": "explicabo"
+}
+
 fetch(url, {
     method: "PUT",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "data": {
+        "msg": "Sucesso!",
+        "code": 200
+    }
+}
+```
+> Example response (400):
+
+```json
+{
+    "data": {
+        "msg": "Erro nos dados enviados!",
+        "code": 400
+    }
+}
+```
+> Example response (404):
+
+```json
+{
+    "data": {
+        "msg": "Não encontrado!",
+        "code": 404
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": {
+        "msg": "Erro interno no servidor!",
+        "code": 500
+    }
+}
+```
 
 ### HTTP Request
 `PUT api/products/{id}`
 
-
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  optional  | optional Name of product.
+        `amount` | float |  optional  | optional Price of product.
+        `qty_stock` | integer |  optional  | optional Quantity of products.
+        `last_sale` | date |  optional  | optional Date of last sale (default: null, format: dd-mm-yyyy)
+    
 <!-- END_241fd2204f9f5b65c7aa7c9618dcca22 -->
 
 <!-- START_160dac2b00e86335715987c6d1c1f3eb -->
@@ -308,6 +365,36 @@ fetch(url, {
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "data": {
+        "msg": "Sucesso!",
+        "code": 200
+    }
+}
+```
+> Example response (404):
+
+```json
+{
+    "data": {
+        "msg": "Não encontrado!",
+        "code": 404
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": {
+        "msg": "Erro interno no servidor!",
+        "code": 500
+    }
+}
+```
 
 ### HTTP Request
 `DELETE api/products/{id}`

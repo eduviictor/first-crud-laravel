@@ -14,4 +14,8 @@ Route::namespace('Api')->name('api')->group(function () {
         Route::put('/{id}', 'ProductController@update')->name('update_products');
         Route::delete('/{id}', 'ProductController@delete')->name('delete_products');
     });
+
+    Route::prefix('purchase')->group(function () {
+        Route::post('/', 'PurchaseController@store')->name('purchase_products');
+    });
 });

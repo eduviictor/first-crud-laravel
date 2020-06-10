@@ -168,7 +168,7 @@ fetch(url, {
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"qui","amount":1.7631526,"qty_stock":2,"last_sale":"quo"}'
+    -d '{"name":"autem","amount":13.881373,"qty_stock":12,"last_sale":"et"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products"
@@ -180,10 +180,10 @@ let headers = {
 };
 
 let body = {
-    "name": "qui",
-    "amount": 1.7631526,
-    "qty_stock": 2,
-    "last_sale": "quo"
+    "name": "autem",
+    "amount": 13.881373,
+    "qty_stock": 12,
+    "last_sale": "et"
 }
 
 fetch(url, {
@@ -268,7 +268,9 @@ fetch(url, {
 <pre><code class="language-bash">curl -X PUT \
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"name":"id","amount":0.832695,"qty_stock":16,"last_sale":"explicabo"}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products/1"
 );
@@ -278,14 +280,95 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "id",
+    "amount": 0.832695,
+    "qty_stock": 16,
+    "last_sale": "explicabo"
+}
+
 fetch(url, {
     method: "PUT",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Sucesso!",
+        "code": 200
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Erro nos dados enviados!",
+        "code": 400
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Não encontrado!",
+        "code": 404
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Erro interno no servidor!",
+        "code": 500
+    }
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PUT api/products/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>optional</td>
+<td>optional Name of product.</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td>float</td>
+<td>optional</td>
+<td>optional Price of product.</td>
+</tr>
+<tr>
+<td><code>qty_stock</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>optional Quantity of products.</td>
+</tr>
+<tr>
+<td><code>last_sale</code></td>
+<td>date</td>
+<td>optional</td>
+<td>optional Date of last sale (default: null, format: dd-mm-yyyy)</td>
+</tr>
+</tbody>
+</table>
 <!-- END_241fd2204f9f5b65c7aa7c9618dcca22 -->
 <!-- START_160dac2b00e86335715987c6d1c1f3eb -->
 <h2>api/products/{id}</h2>
@@ -311,6 +394,33 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Sucesso!",
+        "code": 200
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Não encontrado!",
+        "code": 404
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Erro interno no servidor!",
+        "code": 500
+    }
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>DELETE api/products/{id}</code></p>
 <!-- END_160dac2b00e86335715987c6d1c1f3eb -->

@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "01b8e802-0f64-4ae5-a7db-c3067273baa5",
+        "_postman_id": "4d8482fe-1897-479f-946c-c47bd3183b02",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"qui\",\n    \"amount\": 1.7631526,\n    \"qty_stock\": 2,\n    \"last_sale\": \"quo\"\n}"
+                            "raw": "{\n    \"name\": \"autem\",\n    \"amount\": 13.881373,\n    \"qty_stock\": 12,\n    \"last_sale\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"name\": \"id\",\n    \"amount\": 0.832695,\n    \"qty_stock\": 16,\n    \"last_sale\": \"explicabo\"\n}"
                         },
                         "description": "",
                         "response": []

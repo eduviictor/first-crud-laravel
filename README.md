@@ -2,10 +2,11 @@
 
 ## Instructions
 
-- Após clonar este repositório, certifique-se de criar um arquivo .env e configurar a conexão com o banco de dados;
-- Rode o comando: ```php artisan serve```;
+- After cloning this repository, make sure to create an .env file and configure the connection to the database;
+- Run the command: ```composer install```  in the project's root folder
+- And run the command: ```php artisan serve```;
 
 
 ## Documentation
 
-The documentation 
+The documentation can be found at http://127.0.0.1:8000/doc.

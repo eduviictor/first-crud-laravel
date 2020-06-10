@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "4d8482fe-1897-479f-946c-c47bd3183b02",
+        "_postman_id": "8c1a28ca-baee-483f-a4d1-a60e89fc1f6a",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"autem\",\n    \"amount\": 13.881373,\n    \"qty_stock\": 12,\n    \"last_sale\": \"et\"\n}"
+                            "raw": "{\n    \"name\": \"dolorum\",\n    \"amount\": 391299.950133469,\n    \"qty_stock\": 19,\n    \"last_sale\": \"reiciendis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"id\",\n    \"amount\": 0.832695,\n    \"qty_stock\": 16,\n    \"last_sale\": \"explicabo\"\n}"
+                            "raw": "{\n    \"name\": \"recusandae\",\n    \"amount\": 4097560.84427,\n    \"qty_stock\": 2,\n    \"last_sale\": \"impedit\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -146,6 +146,40 @@
                         "body": {
                             "mode": "raw",
                             "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Purchase",
+            "description": "\nAPIs for managing products",
+            "item": [
+                {
+                    "name": "api\/purchase",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/purchase",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"product_id\": 16,\n    \"quantity_purchased\": 11,\n    \"card\": {\n        \"owner\": \"modi\",\n        \"card_number\": \"illo\",\n        \"date_expiration\": \"expedita\",\n        \"flag\": \"placeat\",\n        \"cvv\": \"ex\"\n    }\n}"
                         },
                         "description": "",
                         "response": []

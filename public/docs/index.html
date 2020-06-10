@@ -168,7 +168,7 @@ fetch(url, {
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"autem","amount":13.881373,"qty_stock":12,"last_sale":"et"}'
+    -d '{"name":"dolorum","amount":391299.950133469,"qty_stock":19,"last_sale":"reiciendis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products"
@@ -180,10 +180,10 @@ let headers = {
 };
 
 let body = {
-    "name": "autem",
-    "amount": 13.881373,
-    "qty_stock": 12,
-    "last_sale": "et"
+    "name": "dolorum",
+    "amount": 391299.950133469,
+    "qty_stock": 19,
+    "last_sale": "reiciendis"
 }
 
 fetch(url, {
@@ -269,7 +269,7 @@ fetch(url, {
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"id","amount":0.832695,"qty_stock":16,"last_sale":"explicabo"}'
+    -d '{"name":"recusandae","amount":4097560.84427,"qty_stock":2,"last_sale":"impedit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products/1"
@@ -281,10 +281,10 @@ let headers = {
 };
 
 let body = {
-    "name": "id",
-    "amount": 0.832695,
-    "qty_stock": 16,
-    "last_sale": "explicabo"
+    "name": "recusandae",
+    "amount": 4097560.84427,
+    "qty_stock": 2,
+    "last_sale": "impedit"
 }
 
 fetch(url, {
@@ -424,6 +424,150 @@ fetch(url, {
 <h3>HTTP Request</h3>
 <p><code>DELETE api/products/{id}</code></p>
 <!-- END_160dac2b00e86335715987c6d1c1f3eb -->
+<h1>Purchase</h1>
+<p>APIs for managing products</p>
+<!-- START_da57eb48d694ba840f22fff28ae9c8d8 -->
+<h2>api/purchase</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/purchase" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"product_id":16,"quantity_purchased":11,"card":{"owner":"modi","card_number":"illo","date_expiration":"expedita","flag":"placeat","cvv":"ex"}}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/purchase"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "product_id": 16,
+    "quantity_purchased": 11,
+    "card": {
+        "owner": "modi",
+        "card_number": "illo",
+        "date_expiration": "expedita",
+        "flag": "placeat",
+        "cvv": "ex"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Sucesso!",
+        "code": 200
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Erro nos dados enviados!",
+        "code": 400
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Não encontrado!",
+        "code": 404
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (402):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Compra não aprovada!",
+        "code": 402
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "msg": "Erro interno no servidor!",
+        "code": 500
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/purchase</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>Id of product.</td>
+</tr>
+<tr>
+<td><code>quantity_purchased</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>integer Quantity of products you want to buy.</td>
+</tr>
+<tr>
+<td><code>card[owner]</code></td>
+<td>string</td>
+<td>required</td>
+<td>Credit card holder name.</td>
+</tr>
+<tr>
+<td><code>card[card_number]</code></td>
+<td>string</td>
+<td>required</td>
+<td>Number of credit card.</td>
+</tr>
+<tr>
+<td><code>card[date_expiration]</code></td>
+<td>string</td>
+<td>required</td>
+<td>Credit card expiration date.</td>
+</tr>
+<tr>
+<td><code>card[flag]</code></td>
+<td>string</td>
+<td>required</td>
+<td>Flag of credit card.</td>
+</tr>
+<tr>
+<td><code>card[cvv]</code></td>
+<td>string</td>
+<td>required</td>
+<td>Cvv of credit card.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_da57eb48d694ba840f22fff28ae9c8d8 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">

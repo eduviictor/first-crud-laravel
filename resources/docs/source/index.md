@@ -166,7 +166,7 @@ curl -X POST \
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"autem","amount":13.881373,"qty_stock":12,"last_sale":"et"}'
+    -d '{"name":"dolorum","amount":391299.950133469,"qty_stock":19,"last_sale":"reiciendis"}'
 
 ```
 
@@ -181,10 +181,10 @@ let headers = {
 };
 
 let body = {
-    "name": "autem",
-    "amount": 13.881373,
-    "qty_stock": 12,
-    "last_sale": "et"
+    "name": "dolorum",
+    "amount": 391299.950133469,
+    "qty_stock": 19,
+    "last_sale": "reiciendis"
 }
 
 fetch(url, {
@@ -250,7 +250,7 @@ curl -X PUT \
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"id","amount":0.832695,"qty_stock":16,"last_sale":"explicabo"}'
+    -d '{"name":"recusandae","amount":4097560.84427,"qty_stock":2,"last_sale":"impedit"}'
 
 ```
 
@@ -265,10 +265,10 @@ let headers = {
 };
 
 let body = {
-    "name": "id",
-    "amount": 0.832695,
-    "qty_stock": 16,
-    "last_sale": "explicabo"
+    "name": "recusandae",
+    "amount": 4097560.84427,
+    "qty_stock": 2,
+    "last_sale": "impedit"
 }
 
 fetch(url, {
@@ -401,5 +401,121 @@ fetch(url, {
 
 
 <!-- END_160dac2b00e86335715987c6d1c1f3eb -->
+
+#Purchase
+
+
+APIs for managing products
+<!-- START_da57eb48d694ba840f22fff28ae9c8d8 -->
+## api/purchase
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/purchase" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"product_id":16,"quantity_purchased":11,"card":{"owner":"modi","card_number":"illo","date_expiration":"expedita","flag":"placeat","cvv":"ex"}}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/purchase"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "product_id": 16,
+    "quantity_purchased": 11,
+    "card": {
+        "owner": "modi",
+        "card_number": "illo",
+        "date_expiration": "expedita",
+        "flag": "placeat",
+        "cvv": "ex"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "msg": "Sucesso!",
+        "code": 200
+    }
+}
+```
+> Example response (400):
+
+```json
+{
+    "data": {
+        "msg": "Erro nos dados enviados!",
+        "code": 400
+    }
+}
+```
+> Example response (404):
+
+```json
+{
+    "data": {
+        "msg": "Não encontrado!",
+        "code": 404
+    }
+}
+```
+> Example response (402):
+
+```json
+{
+    "data": {
+        "msg": "Compra não aprovada!",
+        "code": 402
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": {
+        "msg": "Erro interno no servidor!",
+        "code": 500
+    }
+}
+```
+
+### HTTP Request
+`POST api/purchase`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `product_id` | integer |  required  | Id of product.
+        `quantity_purchased` | integer |  optional  | integer Quantity of products you want to buy.
+        `card[owner]` | string |  required  | Credit card holder name.
+        `card[card_number]` | string |  required  | Number of credit card.
+        `card[date_expiration]` | string |  required  | Credit card expiration date.
+        `card[flag]` | string |  required  | Flag of credit card.
+        `card[cvv]` | string |  required  | Cvv of credit card.
+    
+<!-- END_da57eb48d694ba840f22fff28ae9c8d8 -->
 
 

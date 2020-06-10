@@ -74,7 +74,7 @@ class PurchaseController extends Controller
 
             $amount = $productData['amount'] * $request['quantity_purchased'];
 
-            $response = Http::post('https://run.mocky.io/v3/ca2322c5-8dff-449c-8690-924628e7bc92', [
+            $response = Http::post('https://api.devhp.com.br/test/gateway/shopping', [
                 'amount' => $amount,
                 'card' => $request['card']
             ]);

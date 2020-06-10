@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Reference</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/all.js"></script>
+    <link rel="stylesheet" href="{{ asset('/docs/css/style.css') }}" />
+    <script src="{{ asset('/docs/js/all.js') }}"></script>
 
 
           <script>
@@ -21,11 +21,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="/docs/images/navbar.png" />
       </span>
     </a>
     <div class="tocify-wrapper">
-        <img src="images/logo.png" />
+        <img src="/docs/images/logo.png" />
                     <div class="lang-selector">
                                   <a href="#" data-language-name="bash">bash</a>
                                   <a href="#" data-language-name="javascript">javascript</a>
@@ -46,7 +46,7 @@
           <!-- START_INFO -->
 <h1>Info</h1>
 <p>Welcome to the generated API reference.
-<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<a href="{{ route("apidoc.json") }}">Get Postman Collection</a></p>
 <!-- END_INFO -->
 <h1>Product</h1>
 <p>APIs for managing products</p>
@@ -168,7 +168,7 @@ fetch(url, {
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dolorum","amount":391299.950133469,"qty_stock":19,"last_sale":"reiciendis"}'
+    -d '{"name":"qui","amount":0,"qty_stock":14,"last_sale":"est"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products"
@@ -180,10 +180,10 @@ let headers = {
 };
 
 let body = {
-    "name": "dolorum",
-    "amount": 391299.950133469,
-    "qty_stock": 19,
-    "last_sale": "reiciendis"
+    "name": "qui",
+    "amount": 0,
+    "qty_stock": 14,
+    "last_sale": "est"
 }
 
 fetch(url, {
@@ -269,7 +269,7 @@ fetch(url, {
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"recusandae","amount":4097560.84427,"qty_stock":2,"last_sale":"impedit"}'
+    -d '{"name":"consequuntur","amount":15.02217,"qty_stock":8,"last_sale":"quod"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/products/1"
@@ -281,10 +281,10 @@ let headers = {
 };
 
 let body = {
-    "name": "recusandae",
-    "amount": 4097560.84427,
-    "qty_stock": 2,
-    "last_sale": "impedit"
+    "name": "consequuntur",
+    "amount": 15.02217,
+    "qty_stock": 8,
+    "last_sale": "quod"
 }
 
 fetch(url, {
@@ -435,7 +435,7 @@ fetch(url, {
     "http://localhost/api/purchase" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_id":16,"quantity_purchased":11,"card":{"owner":"modi","card_number":"illo","date_expiration":"expedita","flag":"placeat","cvv":"ex"}}'
+    -d '{"product_id":15,"quantity_purchased":4,"card":{"owner":"est","card_number":"harum","date_expiration":"mollitia","flag":"et","cvv":"laboriosam"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/purchase"
@@ -447,14 +447,14 @@ let headers = {
 };
 
 let body = {
-    "product_id": 16,
-    "quantity_purchased": 11,
+    "product_id": 15,
+    "quantity_purchased": 4,
     "card": {
-        "owner": "modi",
-        "card_number": "illo",
-        "date_expiration": "expedita",
-        "flag": "placeat",
-        "cvv": "ex"
+        "owner": "est",
+        "card_number": "harum",
+        "date_expiration": "mollitia",
+        "flag": "et",
+        "cvv": "laboriosam"
     }
 }
 
@@ -568,6 +568,262 @@ fetch(url, {
 </tbody>
 </table>
 <!-- END_da57eb48d694ba840f22fff28ae9c8d8 -->
+<h1>general</h1>
+<!-- START_cd4a874127cd23508641c63b640ee838 -->
+<h2>doc.json</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/doc.json" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/doc.json"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "variables": [],
+    "info": {
+        "name": "Laravel API",
+        "_postman_id": "63ef585d-f51b-4ac4-ba72-dcd4d45a36d2",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Product",
+            "description": "\nAPIs for managing products",
+            "item": [
+                {
+                    "name": "api\/products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/:id",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"quibusdam\",\n    \"amount\": 217461877.0792489,\n    \"qty_stock\": 6,\n    \"last_sale\": \"asperiores\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/:id",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"quis\",\n    \"amount\": 19.078189,\n    \"qty_stock\": 3,\n    \"last_sale\": \"quam\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/:id",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Purchase",
+            "description": "\nAPIs for managing products",
+            "item": [
+                {
+                    "name": "api\/purchase",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/purchase",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"product_id\": 1,\n    \"quantity_purchased\": 7,\n    \"card\": {\n        \"owner\": \"iure\",\n        \"card_number\": \"dolorum\",\n        \"date_expiration\": \"quasi\",\n        \"flag\": \"explicabo\",\n        \"cvv\": \"libero\"\n    }\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "general",
+            "description": "",
+            "item": [
+                {
+                    "name": "doc.json",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "doc.json",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET doc.json</code></p>
+<!-- END_cd4a874127cd23508641c63b640ee838 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">

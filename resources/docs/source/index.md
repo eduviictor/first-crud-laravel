@@ -166,7 +166,7 @@ curl -X POST \
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dolorum","amount":391299.950133469,"qty_stock":19,"last_sale":"reiciendis"}'
+    -d '{"name":"qui","amount":0,"qty_stock":14,"last_sale":"est"}'
 
 ```
 
@@ -181,10 +181,10 @@ let headers = {
 };
 
 let body = {
-    "name": "dolorum",
-    "amount": 391299.950133469,
-    "qty_stock": 19,
-    "last_sale": "reiciendis"
+    "name": "qui",
+    "amount": 0,
+    "qty_stock": 14,
+    "last_sale": "est"
 }
 
 fetch(url, {
@@ -250,7 +250,7 @@ curl -X PUT \
     "http://localhost/api/products/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"recusandae","amount":4097560.84427,"qty_stock":2,"last_sale":"impedit"}'
+    -d '{"name":"consequuntur","amount":15.02217,"qty_stock":8,"last_sale":"quod"}'
 
 ```
 
@@ -265,10 +265,10 @@ let headers = {
 };
 
 let body = {
-    "name": "recusandae",
-    "amount": 4097560.84427,
-    "qty_stock": 2,
-    "last_sale": "impedit"
+    "name": "consequuntur",
+    "amount": 15.02217,
+    "qty_stock": 8,
+    "last_sale": "quod"
 }
 
 fetch(url, {
@@ -415,7 +415,7 @@ curl -X POST \
     "http://localhost/api/purchase" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_id":16,"quantity_purchased":11,"card":{"owner":"modi","card_number":"illo","date_expiration":"expedita","flag":"placeat","cvv":"ex"}}'
+    -d '{"product_id":15,"quantity_purchased":4,"card":{"owner":"est","card_number":"harum","date_expiration":"mollitia","flag":"et","cvv":"laboriosam"}}'
 
 ```
 
@@ -430,14 +430,14 @@ let headers = {
 };
 
 let body = {
-    "product_id": 16,
-    "quantity_purchased": 11,
+    "product_id": 15,
+    "quantity_purchased": 4,
     "card": {
-        "owner": "modi",
-        "card_number": "illo",
-        "date_expiration": "expedita",
-        "flag": "placeat",
-        "cvv": "ex"
+        "owner": "est",
+        "card_number": "harum",
+        "date_expiration": "mollitia",
+        "flag": "et",
+        "cvv": "laboriosam"
     }
 }
 
@@ -517,5 +517,274 @@ Parameter | Type | Status | Description
         `card[cvv]` | string |  required  | Cvv of credit card.
     
 <!-- END_da57eb48d694ba840f22fff28ae9c8d8 -->
+
+#general
+
+
+<!-- START_cd4a874127cd23508641c63b640ee838 -->
+## doc.json
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/doc.json" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/doc.json"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "variables": [],
+    "info": {
+        "name": "Laravel API",
+        "_postman_id": "63ef585d-f51b-4ac4-ba72-dcd4d45a36d2",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Product",
+            "description": "\nAPIs for managing products",
+            "item": [
+                {
+                    "name": "api\/products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/:id",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"quibusdam\",\n    \"amount\": 217461877.0792489,\n    \"qty_stock\": 6,\n    \"last_sale\": \"asperiores\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/:id",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"quis\",\n    \"amount\": 19.078189,\n    \"qty_stock\": 3,\n    \"last_sale\": \"quam\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/:id",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Purchase",
+            "description": "\nAPIs for managing products",
+            "item": [
+                {
+                    "name": "api\/purchase",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/purchase",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"product_id\": 1,\n    \"quantity_purchased\": 7,\n    \"card\": {\n        \"owner\": \"iure\",\n        \"card_number\": \"dolorum\",\n        \"date_expiration\": \"quasi\",\n        \"flag\": \"explicabo\",\n        \"cvv\": \"libero\"\n    }\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "general",
+            "description": "",
+            "item": [
+                {
+                    "name": "doc.json",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "doc.json",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET doc.json`
+
+
+<!-- END_cd4a874127cd23508641c63b640ee838 -->
 
 

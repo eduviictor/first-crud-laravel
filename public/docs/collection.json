@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "03851df8-e7a7-42dd-82e0-6b54fc989c29",
+        "_postman_id": "01b8e802-0f64-4ae5-a7db-c3067273baa5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"name\": \"qui\",\n    \"amount\": 1.7631526,\n    \"qty_stock\": 2,\n    \"last_sale\": \"quo\"\n}"
                         },
                         "description": "",
                         "response": []

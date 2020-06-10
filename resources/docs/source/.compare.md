@@ -132,13 +132,21 @@ fetch(url, {
 ```json
 {
     "data": {
-        "id": 1,
-        "created_at": "2020-06-09T17:43:01.000000Z",
-        "updated_at": "2020-06-09T17:43:01.000000Z",
-        "name": "Bill Von",
-        "amount": 1.68,
-        "qty_stock": 22,
+        "id": 4,
+        "name": "Example Response",
+        "amount": 150,
+        "qty_stock": 2,
         "last_sale": null
+    }
+}
+```
+> Example response (404):
+
+```json
+{
+    "data": {
+        "msg": "Não encontrado!",
+        "code": 404
     }
 }
 ```
@@ -157,7 +165,9 @@ fetch(url, {
 curl -X POST \
     "http://localhost/api/products" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"name":"qui","amount":1.7631526,"qty_stock":2,"last_sale":"quo"}'
+
 ```
 
 ```javascript
@@ -170,20 +180,65 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "qui",
+    "amount": 1.7631526,
+    "qty_stock": 2,
+    "last_sale": "quo"
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "data": {
+        "msg": "Sucesso!",
+        "code": 200
+    }
+}
+```
+> Example response (400):
+
+```json
+{
+    "data": {
+        "msg": "Erro nos dados enviados!",
+        "code": 400
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": {
+        "msg": "Erro interno no servidor!",
+        "code": 500
+    }
+}
+```
 
 ### HTTP Request
 `POST api/products`
 
-
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  required  | Name of product.
+        `amount` | float |  required  | Price of product.
+        `qty_stock` | integer |  required  | Quantity of products.
+        `last_sale` | date |  optional  | optional Date of last sale (default: null, format: dd-mm-yyyy)
+    
 <!-- END_05b4383f00fd57c4828a831e7057e920 -->
 
 <!-- START_241fd2204f9f5b65c7aa7c9618dcca22 -->

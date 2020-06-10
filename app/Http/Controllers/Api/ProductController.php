@@ -83,12 +83,38 @@ class ProductController extends Controller
         return response()->json($data);
     }
 
+    /**
+     * @response {
+     *      "data": {
+     *          "msg": "Sucesso!",
+     *          "code": 200
+     *      }
+     * }
+     * @response 400 {
+     *      "data": {
+     *          "msg": "Erro nos dados enviados!",
+     *          "code": 400
+     *      }
+     * }
+     * @response 500 {
+     *      "data": {
+     *          "msg": "Erro interno no servidor!",
+     *          "code": 500
+     *      }
+     * }
+     * @bodyParam  name string required Name of product.
+     * @bodyParam  amount float required Price of product.
+     * @bodyParam  qty_stock integer required Quantity of products.
+     * @bodyParam  last_sale date optional Date of last sale (default: null, format: dd-mm-yyyy)
+     */
     public function store(StoreProduct $request)
     {
         $request->validated();
+        $request->validateLogic();
 
         try {
             $data = $request->all();
+            if ($data['last_sale']) $data['last_sale'] = date_create(str_replace('/', '-', $data['last_sale']));
             $this->product->create($data);
             return response()->json(ApiError::success());
         } catch (Exception $e) {
@@ -102,9 +128,11 @@ class ProductController extends Controller
     public function update(UpdateProduct $request, $id)
     {
         $request->validated();
+        $request->validateLogic();
 
         try {
             $data = $request->all();
+            if ($data['last_sale']) $data['last_sale'] = date_create(str_replace('/', '-', $data['last_sale']));
             $product = $this->product->find($id);
             if (!$product) return response()->json(ApiError::notFound());
             $product->update($data);
